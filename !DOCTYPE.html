@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero Stock - Shop Everything</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .navbar-brand { font-weight: bold; color: #ff3e6c !important; }
+        .banner { background: #f1f1f1; padding: 2rem; text-align: center; }
+        .banner img { max-width: 100%; height: auto; }
+        .category img { width: 100px; height: 100px; border-radius: 50%; }
+        .product img { width: 100%; height: 200px; object-fit: cover; }
+        .product { border: 1px solid #ddd; padding: 1rem; text-align: center; }
+        .search-bar { max-width: 500px; margin: 1rem auto; }
+        .cart-count { background: #ff3e6c; color: white; border-radius: 50%; padding: 0.2rem 0.6rem; }
+        .supplier-form, .auth-form { max-width: 600px; margin: 2rem auto; padding: 2rem; background: #f9f9f9; }
+        footer { background: #333; color: white; padding: 1rem; text-align: center; }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Zero Stock</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#categories">Categories</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#supplier">Become a Supplier</a></li>
+                </ul>
+                <form class="d-flex search-bar">
+                    <input class="form-control me-2" type="search" placeholder="Search products..." id="searchInput">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+                <a href="#cart" class="btn btn-outline-primary ms-2">Cart (<span class="cart-count">0</span>)</a>
+                <a href="#login" class="btn btn-outline-primary ms-2">Login/Signup</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Banner -->
+    <div class="banner">
+        <img src="https://via.placeholder.com/1200x300?text=Zero+Stock+Banner" alt="Banner">
+        <h2>Shop the Latest Trends at Zero Stock!</h2>
+    </div>
+
+    <!-- Categories -->
+    <div class="container my-4">
+        <h2>Shop by Category</h2>
+        <div class="row">
+            <div class="col-6 col-md-3 category text-center">
+                <img src="https://via.placeholder.com/100?text=Men" alt="Men">
+                <p>Men's Fashion</p>
+            </div>
+            <div class="col-6 col-md-3 category text-center">
+                <img src="https://via.placeholder.com/100?text=Women" alt="Women">
+                <p>Women's Fashion</p>
+            </div>
+            <div class="col-6 col-md-3 category text-center">
+                <img src="https://via.placeholder.com/100?text=Kids" alt="Kids">
+                <p>Kids</p>
+            </div>
+            <div class="col-6 col-md-3 category text-center">
+                <img src="https://via.placeholder.com/100?text=Electronics" alt="Electronics">
+                <p>Electronics</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Products -->
+    <div class="container my-4">
+        <h2>Featured Products</h2>
+        <div class="row" id="productList">
+            <div class="col-6 col-md-3 product">
+                <img src="https://via.placeholder.com/200?text=Shirt" alt="Shirt">
+                <h3>Men's Casual Shirt</h3>
+                <p>Rs. 499</p>
+                <button class="btn btn-primary add-to-cart" data-id="1" data-name="Men's Casual Shirt" data-price="499">Add to Cart</button>
+            </div>
+            <div class="col-6 col-md-3 product">
+                <img src="https://via.placeholder.com/200?text=Saree" alt="Saree">
+                <h3>Designer Saree</h3>
+                <p>Rs. 999</p>
+                <button class="btn btn-primary add-to-cart" data-id="2" data-name="Designer Saree" data-price="999">Add to Cart</button>
+            </div>
+            <div class="col-6 col-md-3 product">
+                <img src="https://via.placeholder.com/200?text=Phone" alt="Phone">
+                <h3>Smartphone</h3>
+                <p>Rs. 12,999</p>
+                <button class="btn btn-primary add-to-cart" data-id="3" data-name="Smartphone" data-price="12999">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Supplier Registration -->
+    <div class="container supplier-form">
+        <h2>Become a Supplier</h2>
+        <form id="supplierForm">
+            <div class="mb-3">
+                <input type="text" class="form-control" placeholder="Full Name" required>
+            </div>
+            <div class="mb-3">
+                <input type="email" class="form-control" placeholder="Email" required>
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" placeholder="Business Name" required>
+            </div>
+            <div class="mb-3">
+                <input type="tel" class="form-control" placeholder="Phone Number" required>
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" placeholder="Product Categories" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+    </div>
+
+    <!-- Login/Signup -->
+    <div class="container auth-form">
+        <h2>Login/Signup</h2>
+        <form id="authForm">
+            <div class="mb-3">
+                <input type="email" class="form-control" placeholder="Email" required>
+            </div>
+            <div class="mb-3">
+                <input type="password" class="form-control" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="button" class="btn btn-secondary ms-2" onclick="alert('Signup feature coming soon!')">Signup</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Zero Stock. All Rights Reserved.</p>
+        <p><a href="#about" style="color: white;">About</a> | <a href="#contact" style="color: white;">Contact</a> | <a href="#policy" style="color: white;">Privacy Policy</a></p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script>
+        // Firebase Configuration (Replace with your Firebase config)
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_AUTH_DOMAIN",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_STORAGE_BUCKET",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        const auth = firebase.auth();
+
+        // Cart Functionality
+        let cart = [];
+        const cartCount = document.querySelector('.cart-count');
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', () => {
+                const product = {
+                    id: button.dataset.id,
+                    name: button.dataset.name,
+                    price: parseInt(button.dataset.price)
+                };
+                cart.push(product);
+                cartCount.textContent = cart.length;
+                alert(${product.name} added to cart!);
+                // Save cart to Firebase (optional)
+                db.collection('carts').doc('user123').set({ items: cart });
+            });
+        });
+
+        // Search Functionality
+        document.querySelector('#searchInput').addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            const products = document.querySelectorAll('.product');
+            products.forEach(product => {
+                const name = product.querySelector('h3').textContent.toLowerCase();
+                product.style.display = name.includes(query) ? 'block' : 'none';
+            });
+        });
+
+        // Supplier Form Submission
+        document.querySelector('#supplierForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const supplier = {
+                name: formData.get('Full Name'),
+                email: formData.get('Email'),
+                business: formData.get('Business Name'),
+                phone: formData.get('Phone Number'),
+                categories: formData.get('Product Categories')
+            };
+            db.collection('suppliers').add(supplier).then(() => {
+                alert('Supplier registration submitted!');
+                e.target.reset();
+            });
+        });
+
+        // Login Functionality
+        document.querySelector('#authForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = e.target.querySelector('input[type="email"]').value;
+            const password = e.target.querySelector('input[type="password"]').value;
+            auth.signInWithEmailAndPassword(email, password)
+                .then(() => alert('Login successful!'))
+                .catch(err => alert('Error: ' + err.message));
+        });
+    </script>
+</body>
+</html>
